@@ -13,6 +13,8 @@ public class StringCalculator {
             System.out.println("Test failed");
     }
     public int Add(String numbers){
+        if(numbers.isEmpty())
+            return 0;
         return Integer.MAX_VALUE;
     }
 }
