@@ -25,7 +25,7 @@ public class StringCalculator {
          if(obj.Add("1,2,3,4,5")==15)
              System.out.println("Test case 4 passed");
          else
-             System.out.println("Test case 3 failed");
+             System.out.println("Test case 4 failed");
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
@@ -33,6 +33,10 @@ public class StringCalculator {
         if(numbers.length()==1)
             return Integer.parseInt(numbers);
         String[] S=numbers.split(",");
-        return Integer.parseInt(S[0])+Integer.parseInt(S[1]);
+        int sum=0;
+        for(int i=0;i<S.length;i++){
+            sum+=Integer.parseInt(S[i]);
+        }
+        return sum;
     }
 }
