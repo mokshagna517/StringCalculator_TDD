@@ -7,10 +7,20 @@ public class StringCalculator {
 	// write your code here
         StringCalculator obj=new StringCalculator();
 
-        if(obj.Add("")==0 && obj.Add("1")==1 && obj.Add("1,2")==3)
-            System.out.println("Test passed");
-        else
-            System.out.println("Test failed");
+        if(obj.Add("")==0)
+            System.out.println("Test case 1 passed");
+         else
+            System.out.println("Test case 1 failed");
+
+         if(obj.Add("1")==1)
+             System.out.println("Test case 2 passed");
+         else
+             System.out.println("Test case 2 failed");
+
+         if(obj.Add("1,2")==3)
+             System.out.println("Test case 3 passed");
+         else
+             System.out.println("Test case 3 failed");
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
@@ -18,9 +28,6 @@ public class StringCalculator {
         if(numbers.length()==1)
             return Integer.parseInt(numbers);
         String[] S=numbers.split(",");
-        Integer x=Integer.parseInt(S[0]);
-        Integer y=Integer.parseInt(S[1]);
-        int res=x+y;
-        return  res;
+        return Integer.parseInt(S[0])+Integer.parseInt(S[1]);
     }
 }
