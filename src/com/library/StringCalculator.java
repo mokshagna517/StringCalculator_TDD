@@ -30,8 +30,6 @@ public class StringCalculator {
     public int Add(String numbers){
         if(numbers.isEmpty())
             return 0;
-        if(numbers.length()==1)
-            return Integer.parseInt(numbers);
         String[] S=numbers.split(",");
         int sum=0;
         for(int i=0;i<S.length;i++){
