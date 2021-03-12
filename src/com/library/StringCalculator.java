@@ -26,6 +26,9 @@ public class StringCalculator {
              System.out.println("Test case 4 passed");
          else
              System.out.println("Test case 4 failed");
+         if(obj.Add("1,2\n4,5")==12)
+             System.out.println("Test case 5 passed");
+         else System.out.println("Test case 5 failed");
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
