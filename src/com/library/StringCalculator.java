@@ -15,6 +15,12 @@ public class StringCalculator {
     public int Add(String numbers){
         if(numbers.isEmpty())
             return 0;
-        return Integer.MAX_VALUE;
+        if(numbers.length()==1)
+            return Integer.parseInt(numbers);
+        String[] S=numbers.split(",");
+        Integer x=Integer.parseInt(S[0]);
+        Integer y=Integer.parseInt(S[1]);
+        int res=x+y;
+        return  res;
     }
 }
