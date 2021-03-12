@@ -7,7 +7,7 @@ public class StringCalculator {
 	// write your code here
         StringCalculator obj=new StringCalculator();
 
-        if(obj.Add("")==0)
+        if(obj.Add("")==0 && obj.Add("1")==1 && obj.Add("1,2")==3)
             System.out.println("Test passed");
         else
             System.out.println("Test failed");
