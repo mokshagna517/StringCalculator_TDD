@@ -21,6 +21,11 @@ public class StringCalculator {
              System.out.println("Test case 3 passed");
          else
              System.out.println("Test case 3 failed");
+
+         if(obj.Add("1,2,3,4,5")==15)
+             System.out.println("Test case 4 passed");
+         else
+             System.out.println("Test case 3 failed");
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
