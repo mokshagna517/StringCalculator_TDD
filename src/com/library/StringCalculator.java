@@ -26,14 +26,14 @@ public class StringCalculator {
              System.out.println("Test case 4 passed");
          else
              System.out.println("Test case 4 failed");
-         if(obj.Add("1,2\n4,5")==12)
+         if(obj.Add("1,2\n4,5\n7")==19)
              System.out.println("Test case 5 passed");
          else System.out.println("Test case 5 failed");
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
             return 0;
-        String[] S=numbers.split(",");
+        String[] S=numbers.split(",|\\n");
         int sum=0;
         for(int i=0;i<S.length;i++){
             sum+=Integer.parseInt(S[i]);
