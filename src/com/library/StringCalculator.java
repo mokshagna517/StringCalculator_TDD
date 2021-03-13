@@ -36,10 +36,11 @@ public class StringCalculator {
     public int Add(String numbers){
         if(numbers.isEmpty())
             return 0;
-        String[] S=numbers.split(",|\\n");
+
         int sum=0;
-        for(int i=0;i<S.length;i++){
-            sum+=Integer.parseInt(S[i]);
+        for(int i=0;i<numbers.length();i++){
+            if(Character.isDigit(numbers.charAt(i)))
+                sum+=Character.getNumericValue(numbers.charAt(i));
         }
         return sum;
     }
