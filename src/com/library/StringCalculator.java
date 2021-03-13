@@ -55,32 +55,28 @@ public class StringCalculator {
             System.out.println("Test case 10 passed");
         else System.out.println("Test case 10 failed");
 
+        if(obj.Add("//[***][%%]\\n1*250%3")==254)
+            System.out.println("Test case 11 passed");
+        else System.out.println("Test case 11 failed");
+
     }
     public int Add(String numbers) throws Exception {
         if(numbers.isEmpty())
             return 0;
-
+         String newNumbers=numbers.replaceAll("([^0-9-])+",",");
+         String[] S=newNumbers.split(",");
         int sum=0;
-        for(int i=0;i<numbers.length();i++){
-            if(i<numbers.length()-1 && numbers.charAt(i)=='-'){
-                String number=getNumber(numbers,i+1);
-                throw new Exception("negatives not allowed -"+number, new Throwable());
-            }
+         for(int i=0;i<S.length;i++){
+             if(S[i].isEmpty())
+                 continue;
+             if(Integer.parseInt(S[i])<0){
+                 throw new Exception("negatives not allowed - "+S[i].substring(1,S[i].length()), new Throwable());
+             }
 
-            String number=getNumber(numbers,i);
+             int x=Integer.parseInt(S[i]);
+             sum+=(x>1000)?0:x;
+         }
 
-            if((!number.isEmpty() && Integer.parseInt(number)<=1000))
-                sum+=Integer.parseInt(number);
-        }
         return sum;
-    }
-
-    public static String getNumber(String numbers, int index){
-        String number="";
-        while(index<numbers.length() && Character.isDigit(numbers.charAt(index))) {
-            number += numbers.charAt(index);
-            index++;
-        }
-        return number;
     }
 }
