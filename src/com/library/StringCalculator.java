@@ -3,7 +3,7 @@ package com.library;
 
 public class StringCalculator {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 	// write your code here
         StringCalculator obj=new StringCalculator();
 
@@ -26,12 +26,23 @@ public class StringCalculator {
              System.out.println("Test case 4 passed");
          else
              System.out.println("Test case 4 failed");
+
          if(obj.Add("1,2\n4,5\n7")==19)
              System.out.println("Test case 5 passed");
          else System.out.println("Test case 5 failed");
+
         if(obj.Add("//;\n1,2\n4\n7")==14)
             System.out.println("Test case 6 passed");
         else System.out.println("Test case 6 failed");
+
+        try{
+        if(obj.Add("//;\n1,-2\n4\n7")==14)
+            System.out.println("Test case 7 failed");
+        }catch(Exception e)
+        {
+            System.out.println("Test case 7 passed");
+            throw new Exception("negatives not allowed",e);
+        }
     }
     public int Add(String numbers){
         if(numbers.isEmpty())
