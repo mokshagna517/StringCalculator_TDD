@@ -43,6 +43,10 @@ public class StringCalculator {
             System.out.println("Test case 7 passed");
            System.out.println(e.getMessage());
         }
+        if(obj.Add("//;\n1,2000\n4000\n1000")==1001)
+            System.out.println("Test case 8 passed");
+        else System.out.println("Test case 8 failed");
+
     }
     public int Add(String numbers) throws Exception {
         if(numbers.isEmpty())
