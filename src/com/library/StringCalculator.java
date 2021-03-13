@@ -41,15 +41,17 @@ public class StringCalculator {
         }catch(Exception e)
         {
             System.out.println("Test case 7 passed");
-            throw new Exception("negatives not allowed",e);
+           System.out.println(e.getMessage());
         }
     }
-    public int Add(String numbers){
+    public int Add(String numbers) throws Exception {
         if(numbers.isEmpty())
             return 0;
 
         int sum=0;
         for(int i=0;i<numbers.length();i++){
+            if(i<numbers.length()-1 && numbers.charAt(i)=='-' && Character.isDigit(numbers.charAt(i+1)))
+                throw new Exception("negatives not allowed -"+numbers.charAt(i+1), new Throwable());
             if(Character.isDigit(numbers.charAt(i)))
                 sum+=Character.getNumericValue(numbers.charAt(i));
         }
