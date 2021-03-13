@@ -54,10 +54,22 @@ public class StringCalculator {
 
         int sum=0;
         for(int i=0;i<numbers.length();i++){
-            if(i<numbers.length()-1 && numbers.charAt(i)=='-' && Character.isDigit(numbers.charAt(i+1)))
-                throw new Exception("negatives not allowed -"+numbers.charAt(i+1), new Throwable());
-            if(Character.isDigit(numbers.charAt(i)))
-                sum+=Character.getNumericValue(numbers.charAt(i));
+            if(i<numbers.length()-1 && numbers.charAt(i)=='-'){
+                String number="";
+                while(i<numbers.length()-1 && Character.isDigit(numbers.charAt(i+1))) {
+                    number += numbers.charAt(i+1);
+                    i++;
+                }
+                throw new Exception("negatives not allowed -"+number, new Throwable());
+            }
+
+            String number="";
+            while(i<numbers.length() && Character.isDigit(numbers.charAt(i))) {
+                number += numbers.charAt(i);
+                i++;
+            }
+            if((!number.isEmpty() && Integer.parseInt(number)<=1000))
+                sum+=Integer.parseInt(number);
         }
         return sum;
     }
