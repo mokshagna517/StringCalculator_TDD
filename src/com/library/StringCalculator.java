@@ -51,6 +51,9 @@ public class StringCalculator {
             System.out.println("Test case 9 passed");
         else System.out.println("Test case 9 failed");
 
+        if(obj.Add("//[*][%]\\n1*2%3")==6)
+            System.out.println("Test case 10 passed");
+        else System.out.println("Test case 10 failed");
 
     }
     public int Add(String numbers) throws Exception {
